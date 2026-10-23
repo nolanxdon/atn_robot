@@ -14,14 +14,14 @@ def generate_launch_description():
         Node(package="asl_tb3_lib", executable="rviz_goal_relay.py",
              parameters=[clock, {"output_channel": "/cmd_nav"}]),
         Node(package="asl_tb3_lib", executable="state_publisher.py", parameters=[clock]),
-        Node(package="autonomy_repo", executable="navigator.py", parameters=[clock],
+        Node(package="section5", executable="navigator.py", parameters=[clock],
              output="screen"),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(PathJoinSubstitution([
                 FindPackageShare("asl_tb3_sim"), "launch", "rviz.launch.py"])),
             launch_arguments={
                 "config": PathJoinSubstitution([
-                    FindPackageShare("autonomy_repo"), "rviz", "default.rviz"]),
+                    FindPackageShare("section5"), "rviz", "default.rviz"]),
                 "use_sim_time": use_sim_time,
             }.items()),
     ])
