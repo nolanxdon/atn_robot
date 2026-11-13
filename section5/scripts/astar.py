@@ -42,7 +42,7 @@ class AStar(object):
         ########## Code starts here ##########
         inside = all(lo <= value <= hi for value, lo, hi in
                      zip(x, self.statespace_lo, self.statespace_hi))
-        return inside and self.occupancy.is_free(x)
+        return inside and self.occupancy.is_free(np.array(x))
         ########## Code ends here ##########
 
     def distance(self, x1, x2):
